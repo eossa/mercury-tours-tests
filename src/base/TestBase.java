@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -43,17 +44,20 @@ public class TestBase {
 		case "iEdge":
 			driver = initIEdgeDriver(url);
 			break;
+		case "opera":
+			driver = initOperaDriver(url);
+			break;
 		default:
 			throw new RuntimeException("Browser type unsupported: " + browser);
 		}
 	}
 
 	private static WebDriver initFirefoxDriver(String url) {
-		if (OS.indexOf("win") >= 0) {
+		if (OS.contains("win")) {
 			System.setProperty("webdriver.gecko.driver", CUR_DIR + "/drivers/GeckoDriver/geckodriver.exe");
-		} else if (OS.indexOf("linux") >= 0) {
+		} else if (OS.contains("linux")) {
 			System.setProperty("webdriver.gecko.driver", CUR_DIR + "/drivers/GeckoDriver/geckodriver");
-		} else if (OS.indexOf("mac") >= 0) {
+		} else if (OS.contains("mac")) {
 			System.setProperty("webdriver.gecko.driver", CUR_DIR + "/drivers/GeckoDriver/geckodriver");
 		}
 		FirefoxOptions options = new FirefoxOptions()
@@ -64,7 +68,7 @@ public class TestBase {
 	}
 
 	private static WebDriver initIEdgeDriver(String url) {
-		if (OS.indexOf("win") >= 0) {
+		if (OS.contains("win")) {
 			System.setProperty("webdriver.chrome.driver",
 					CUR_DIR + "/drivers/Chrome/windows/Release 15063/MicrosoftWebDriver.exe");
 		} else {
@@ -76,8 +80,8 @@ public class TestBase {
 	}
 
 	private static WebDriver initIExplorerDriver(String url) {
-		String arquitectura = ARQ.indexOf("32") >= 0 ? "32" : "64";
-		if (OS.indexOf("win") >= 0) {
+		String arquitectura = ARQ.contains("32") ? "32" : "64";
+		if (OS.contains("win")) {
 			System.setProperty("webdriver.chrome.driver",
 					CUR_DIR + "/drivers/IExplorer/" + arquitectura + "/IEDriverServer.exe");
 		} else {
@@ -97,16 +101,30 @@ public class TestBase {
 	}
 
 	private static WebDriver initChromeDriver(String url) {
-		String arquitectura = ARQ.indexOf("32") >= 0 ? "32" : "64";
-		if (OS.indexOf("win") >= 0) {
+		String arquitectura = ARQ.contains("32") ? "32" : "64";
+		if (OS.contains("win")) {
 			System.setProperty("webdriver.chrome.driver", CUR_DIR + "/drivers/Chrome/windows/chromedriver.exe");
-		} else if (OS.indexOf("linux") >= 0) {
+		} else if (OS.contains("linux")) {
 			System.setProperty("webdriver.chrome.driver",
 					CUR_DIR + "/drivers/Chrome/linux/" + arquitectura + "/chromedriver");
-		} else if (OS.indexOf("mac") >= 0) {
+		} else if (OS.contains("mac")) {
 			System.setProperty("webdriver.chrome.driver", CUR_DIR + "/drivers/Chrome/mac/chromedriver");
 		}
 		driver = new ChromeDriver();
+		driver.navigate().to(url);
+		return driver;
+	}
+
+	private static WebDriver initOperaDriver(String url) {
+		String arquitectura = ARQ.contains("32") ? "32" : "64";
+		if (OS.contains("win")) {
+			System.setProperty("webdriver.opera.driver", CUR_DIR + "/drivers/Opera/windows/" + arquitectura + "/operadriver.exe");
+		} else if (OS.contains("linux")) {
+			System.setProperty("webdriver.opera.driver", CUR_DIR + "/drivers/Opera/linux/" + arquitectura + "/operadriver");
+		} else if (OS.contains("mac")) {
+			System.setProperty("webdriver.opera.driver", CUR_DIR + "/drivers/Opera/mac/operadriver");
+		}
+		driver = new OperaDriver();
 		driver.navigate().to(url);
 		return driver;
 	}
