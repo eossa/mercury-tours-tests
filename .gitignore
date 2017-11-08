@@ -24,3 +24,4 @@ hs_err_pid*
 .idea/
 MercuryTours.iml
 target/
+resources/datosInicio.properties
