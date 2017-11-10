@@ -1,11 +1,11 @@
-package test.inicio;
+package test.menu;
 
 import base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pagesObjects.MenuNavegacionPage;
 
-public class NavegacionMenu extends TestBase {
+public class Superior extends TestBase {
 
     @Test
     public void validarTextLinks() {

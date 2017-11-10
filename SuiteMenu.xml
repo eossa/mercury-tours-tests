@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Registro" verbose="1">
+<suite name="Menu" verbose="1">
     <test name="t001">
         <classes>
-            <class name="test.registro.ValidarCampos"/>
+            <class name="test.menu.Superior"/>
         </classes>
     </test>
     <test name="t002">
         <classes>
-            <class name="test.registro.Registrar"/>
+            <class name="test.menu.Lateral"/>
+        </classes>
+    </test>
+    <test name="t003">
+        <classes>
+            <class name="test.menu.SuperiorLogin"/>
         </classes>
     </test>
 </suite>

@@ -1,4 +1,4 @@
-package test.reservarVuelo;
+package test.reservarvuelo;
 
 import base.TestBase;
 import org.testng.annotations.Test;
