@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Autenticacion" verbose="1">
+    <test name="t001">
+        <classes>
+            <class name="test.autenticacion.ValidarCampos"/>
+        </classes>
+    </test>
+    <test name="t002">
+        <classes>
+            <class name="test.autenticacion.LoginCorrecto"/>
+        </classes>
+    </test>
+    <test name="t003">
+        <classes>
+            <class name="test.autenticacion.LoginIncorrecto"/>
+        </classes>
+    </test>
+</suite>
