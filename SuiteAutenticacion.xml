@@ -16,4 +16,14 @@
             <class name="test.autenticacion.LoginIncorrecto"/>
         </classes>
     </test>
+    <test name="t004">
+        <classes>
+            <class name="test.autenticacion.SignOnCorrecto"/>
+        </classes>
+    </test>
+    <test name="t005">
+        <classes>
+            <class name="test.autenticacion.SignOnIncorrecto"/>
+        </classes>
+    </test>
 </suite>
