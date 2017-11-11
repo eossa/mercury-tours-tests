@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [ReservarVuelo]">
+  <test name="t001(failed)">
+    <classes>
+      <class name="test.reservarvuelo.ValidarCampos">
+        <methods>
+          <include name="findFlight"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- test.reservarvuelo.ValidarCampos -->
+    </classes>
+  </test> <!-- t001(failed) -->
+  <test name="t002(failed)">
+    <classes>
+      <class name="test.reservarvuelo.ReservarCorrecto">
+        <methods>
+          <include name="initializeTestBaseSetup"/>
+          <include name="reservarVuelo"/>
+          <include name="buscarVuelos"/>
+          <include name="seleccionarVuelo"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- test.reservarvuelo.ReservarCorrecto -->
+    </classes>
+  </test> <!-- t002(failed) -->
+</suite> <!-- Failed suite [ReservarVuelo] -->

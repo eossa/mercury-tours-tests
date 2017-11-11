@@ -6,8 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import base.PageBase;
+import utils.ExcelUtils;
+import utils.ExcelUtils.ExcelType;
 
 public class LoginPage extends PageBase {
+	private static ExcelUtils excelUtils;
 	
 	public LoginPage(WebDriver driver, String pageTitle) {
 		super(driver, pageTitle);
@@ -51,9 +54,16 @@ public class LoginPage extends PageBase {
 		return lnkRegister;
 	}
 	
-	public void loginMercuryTours(String userName, String password) {
-		sendText(inputUserName, userName);
-		sendText(inputPassword, password);
-		clickButtonLink(buttonSingIn);
+	public void loginMercuryTours() {
+        try {
+            excelUtils = new ExcelUtils("CredencialesLogin.xlsx", ExcelType.XLSX);
+            String username = excelUtils.getCellData(1, 0);
+            String password = excelUtils.getCellData(1, 1);
+			sendText(inputUserName, username);
+			sendText(inputPassword, password);
+			clickButtonLink(buttonSingIn);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 	}
 }
