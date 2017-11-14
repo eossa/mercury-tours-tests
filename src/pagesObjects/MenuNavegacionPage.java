@@ -16,14 +16,20 @@ public class MenuNavegacionPage extends PageBase {
 	// WebElements menú superior
 	@FindBy(how = How.LINK_TEXT, using = "SIGN-ON")
 	private WebElement lnkSingOn;
-	@FindBy(how = How.LINK_TEXT, using = "SIGN-OFF")
-	private WebElement lnkSingOf;
 	@FindBy(how = How.LINK_TEXT, using = "REGISTER")
 	private WebElement lnkRegister;
 	@FindBy(how = How.LINK_TEXT, using = "SUPPORT")
 	private WebElement lnkSupport;
 	@FindBy(how = How.LINK_TEXT, using = "CONTACT")
 	private WebElement lnkContact;
+	
+	// WebElements menú superior login
+	@FindBy(how = How.LINK_TEXT, using = "SIGN-OFF")
+	private WebElement lnkSingOff;
+	@FindBy(how = How.LINK_TEXT, using = "ITINERARY")
+	private WebElement lnkItinerary;
+	@FindBy(how = How.LINK_TEXT, using = "PROFILE")
+	private WebElement lnkProfile;
 
 	// WebElements menú lateral
 	@FindBy(how = How.LINK_TEXT, using = "Home")
@@ -43,10 +49,6 @@ public class MenuNavegacionPage extends PageBase {
 
 	public WebElement getLnkSingOn() {
 		return lnkSingOn;
-	}
-	
-	public WebElement getLnkSingOff() {
-		return lnkSingOf;
 	}
 
 	public WebElement getLnkRegister() {
@@ -91,5 +93,17 @@ public class MenuNavegacionPage extends PageBase {
 	
 	public void clickLink(WebElement element) {
 		clickButtonLink(element);
+	}
+
+	public WebElement getLnkItinerary() {
+		return lnkItinerary;
+	}
+
+	public WebElement getLnkProfile() {
+		return lnkProfile;
+	}
+
+	public WebElement getLnkSingOff() {
+		return lnkSingOff;
 	}
 }
