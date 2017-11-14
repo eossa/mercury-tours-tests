@@ -8,9 +8,14 @@ import org.openqa.selenium.support.How;
 
 public class SignOnPage extends PageBase {
 
-	public SignOnPage(WebDriver driver, String pageTitle) {
-		super(driver, pageTitle);
-	}
+    public SignOnPage(WebDriver driver, String pageTitle) {
+        super(driver, pageTitle);
+    }
 
-	// TODO
+    public void singOn(String username, String password) {
+        visit("mercurysignon.php")
+                .type("userName", username)
+                .type("password", password)
+                .click("[name='login']");
+    }
 }
