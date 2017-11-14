@@ -207,4 +207,8 @@ public class PageBase {
 		driver.navigate().to(url);
 		return this;
 	}
+
+	public WebElement element(String selector) {
+		return driver.findElement(By.cssSelector(selector));
+	}
 }
