@@ -25,3 +25,6 @@ hs_err_pid*
 MercuryTours.iml
 target/
 resources/datosInicio.properties
+test-output/
+.classpath
+.project
