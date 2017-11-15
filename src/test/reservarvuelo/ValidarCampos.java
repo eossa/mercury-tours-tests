@@ -4,10 +4,15 @@ import base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pagesObjects.FindFlightPage;
+import pagesObjects.LoginPage;
+import pagesObjects.SelectFlightPage;
 
 public class ValidarCampos extends TestBase {
     @Test
     public void findFlight() {
+        LoginPage loginPage = new LoginPage(driver, "Welcome: Mercury Tours");
+        loginPage.loginMercuryTours();
+
         FindFlightPage findFlight = new FindFlightPage(driver, "Find a Flight: Mercury Tours");
 
         if (!(findFlight.isElementPresentAndDisplay(findFlight.getRadioRoundTrip())))
@@ -52,6 +57,10 @@ public class ValidarCampos extends TestBase {
 
     @Test(dependsOnMethods = {"findFlight"})
     public void selectFlight() {
-        // TODO: Validar que se encuentre en la página.
+        String pageTitle = "Select a Flight: Mercury Tours";
+        SelectFlightPage selectFlightPage = new SelectFlightPage(driver, pageTitle);
+        selectFlightPage.visit("mercuryreservation2.php");
+        if (!selectFlightPage.isPageLoad())
+            Assert.fail("No se encuentra en la página " + pageTitle);
     }
 }
