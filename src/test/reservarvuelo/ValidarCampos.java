@@ -49,4 +49,9 @@ public class ValidarCampos extends TestBase {
         if (!(findFlight.isElementPresentAndDisplay(findFlight.getSelectAirline())))
             Assert.fail("No se encontró el select airline");
     }
+
+    @Test(dependsOnMethods = {"findFlight"})
+    public void selectFlight() {
+        // TODO: Validar que se encuentre en la página.
+    }
 }
