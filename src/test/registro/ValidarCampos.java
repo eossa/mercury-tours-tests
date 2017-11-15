@@ -8,6 +8,8 @@ import pagesObjects.RegisterPage;
 import utils.ExcelUtils;
 import utils.ExcelUtils.ExcelType;
 
+import java.io.IOException;
+
 public class ValidarCampos extends TestBase {
     @Test
     public void f() {
@@ -28,8 +30,6 @@ public class ValidarCampos extends TestBase {
             String passwordConfirm = excelUtils.getCellData(0, 12);
 
             registerPage.visit("mercuryregister.php");
-
-            // FIXME: Unable to locate element: {"method":"css selector","selector":"input[name='First Name']"}
 
             if (!(registerPage.isElementPresentAndDisplay(registerPage.resolveForTyping(firstName))))
                 Assert.fail("No se encontró el campo de " + firstName);
@@ -55,7 +55,7 @@ public class ValidarCampos extends TestBase {
             if (!(registerPage.isElementPresentAndDisplay(registerPage.resolveForTyping(postalCode))))
                 Assert.fail("No se encontró el campo de " + postalCode);
 
-            if (!(registerPage.isElementPresentAndDisplay(registerPage.resolveForTyping(country))))
+            if (!(registerPage.isElementPresentAndDisplay(registerPage.resolveForSelection(country))))
                 Assert.fail("No se encontró el campo de " + country);
 
             if (!(registerPage.isElementPresentAndDisplay(registerPage.resolveForTyping(email))))
@@ -66,8 +66,8 @@ public class ValidarCampos extends TestBase {
 
             if (!(registerPage.isElementPresentAndDisplay(registerPage.resolveForTyping(passwordConfirm))))
                 Assert.fail("No se encontró el campo de " + passwordConfirm);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
         }
     }
 }
