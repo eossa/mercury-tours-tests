@@ -17,20 +17,20 @@ public class SuperiorLogin extends TestBase {
         LoginPage login = new LoginPage(driver, "Welcome: Mercury Tours");
         login.loginMercuryTours();
         
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkSingOff(), "SIGN-OFF"))) {
-            Assert.fail("El link no contiene el texto esperado SIGN-OFF");
-        }
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkItinerary(), "ITINERARY"))) {
-            Assert.fail("El link no contiene el texto esperado ITINERARY");
-        }
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkProfile(), "PROFILE"))) {
-            Assert.fail("El link no contiene el texto esperado PROFILE");
-        }
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkSupport(), "SUPPORT"))) {
-            Assert.fail("El link no contiene el texto esperado SUPPORT");
-        }
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkContact(), "CONTACT"))) {
-            Assert.fail("El link no contiene el texto esperado CONTACT");
-        }
+        if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkSingOff()))){
+			Assert.fail("No se encontró el link SIGN-OFF");
+		}
+		if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkItinerary()))){
+			Assert.fail("No se encontró el link ITINERARY");
+		}
+		if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkProfile()))){
+			Assert.fail("No se encontró el link PROFILE");
+		}
+		if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkSupport()))){
+			Assert.fail("No se encontró el link SUPPORT");
+		}
+		if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkContact()))){
+			Assert.fail("No se encontró el link CONTACT");
+		}
     }
 }

@@ -9,19 +9,19 @@ public class Superior extends TestBase {
 
     @Test
     public void validarTextLinks() {
-        MenuNavegacionPage menuNavegacon = new MenuNavegacionPage(driver, "Welcome: Mercury Tours");
-
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkSingOn(), "SIGN-ON"))) {
-            Assert.fail("El link no contiene el texto esperado SIGN-ON");
-        }
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkRegister(), "REGISTER"))) {
-            Assert.fail("El link no contiene el texto esperado REGISTER");
-        }
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkSupport(), "SUPPORT"))) {
-            Assert.fail("El link no contiene el texto esperado SUPPORT");
-        }
-        if (!(menuNavegacon.isElementEquals(menuNavegacon.getLnkContact(), "CONTACT"))) {
-            Assert.fail("El link no contiene el texto esperado CONTACT");
-        }
+        MenuNavegacionPage menuNavegacon = new MenuNavegacionPage(driver, "Welcome: Mercury Tours");        
+        
+        if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkSingOn()))){
+			Assert.fail("No se encontró el link SIGN-ON");
+		}
+		if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkRegister()))){
+			Assert.fail("No se encontró el link REGISTER");
+		}
+		if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkSupport()))){
+			Assert.fail("No se encontró el link SUPPORT");
+		}
+		if (!(menuNavegacon.isElementPresentAndDisplay(menuNavegacon.getLnkContact()))){
+			Assert.fail("No se encontró el link CONTACT");
+		}
     }
 }
